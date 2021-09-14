@@ -6,7 +6,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using Mobile_A2_Practice.Models;
 using System.Collections.Generic;
-
+using Android.Views;
 namespace Mobile_A2_Practice
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
@@ -26,6 +26,29 @@ namespace Mobile_A2_Practice
             myList = DatabaseManager.GetHouseData();
             LV.Adapter = new DataAdapter(this, myList);
             LV.ItemClick += LV_ItemClick;
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            menu.Add("Edit Profile");
+            menu.Add("Log Out");
+            return base.OnPrepareOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            var itemTitle = item.TitleFormatted.ToString();
+
+            switch (itemTitle)
+            {
+                case "Edit Profile":
+                    StartActivity(typeof(EditProfile));
+                    break;
+                case "Log Out":
+                    StartActivity(typeof(MainActivity));
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
         private void LV_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

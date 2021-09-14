@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="DataAdapter.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="EditProfile.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Models\Rent_Agent.cs" />
     <Compile Include="Models\Rent_Houses.cs" />
@@ -161,6 +162,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EditProfile.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
